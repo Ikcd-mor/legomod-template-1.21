@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "legomod",
+	"version": "${version}",
+	"name": "LegoMod",
+	"description": "乐高方块mod",
+	"authors": [
+		"Ikcd"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/legomod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.legomod.LegoMod"
+		],
+		"fabric-datagen": [
+			"com.example.legomod.LegoModDataGenerator"
+		],
+		"client":[
+			"com.example.legomod.LegoModClient"
+		]
+	},
+	"mixins": [
+		"legomod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

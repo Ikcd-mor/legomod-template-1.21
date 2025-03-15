@@ -1,0 +1,9 @@
+// 1.21	2025-03-14T00:14:29.1308729	LegoMod/Model Definitions
+a0b28f0327f6c1a85cc02c2163c803bd690f6eb1 assets\legomod\models\item\yellow_lego_block.json
+98d102f797a184597f5942511db1d02b86aa6810 assets\legomod\blockstates\blue_lego_block.json
+f4cd9db76f579ffe7fa6f68c5e269b191219e14d assets\legomod\blockstates\lego_block.json
+ddf06fa3c409846ca2ea717c6666a34088281a1c assets\legomod\blockstates\red_lego_block.json
+71d7dc40ee5db259173dbf9c6522c55e5289c9ed assets\legomod\models\item\blue_lego_block.json
+c41005635e6ff76fc0c995ebbc3d92a210b909f1 assets\legomod\models\item\red_lego_block.json
+c8ebf5167fda0517a20eabd84ea3788d98e64bbb assets\legomod\blockstates\yellow_lego_block.json
+7143321579361acd853d2687a9f4b76302d79e13 assets\legomod\models\item\lego_block.json

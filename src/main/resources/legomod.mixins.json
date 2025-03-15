@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.example.legomod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EntityMixin",
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
