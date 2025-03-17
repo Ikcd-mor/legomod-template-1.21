@@ -1,0 +1,9 @@
+{
+  "block.legomod.blue_lego_block": "蓝色乐高块",
+  "block.legomod.lego_block": "乐高块",
+  "block.legomod.red_lego_block": "红色乐高块",
+  "block.legomod.yellow_lego_block": "黄色乐高块",
+  "effect.legomod.immobilize": "定身",
+  "effect.legomod.pain": "疼痛",
+  "itemGroup.lego_group": "乐高"
+}

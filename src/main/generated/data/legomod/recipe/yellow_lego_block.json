@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "legomod:lego_block"
+    },
+    {
+      "item": "minecraft:honey_block"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "legomod:yellow_lego_block"
+  }
+}
