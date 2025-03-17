@@ -15,6 +15,7 @@ public class LegoModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModModelsProvider::new);
 		pack.addProvider(ModRecipesProvider::new);
+		pack.addProvider(ModZHCNLanProvider::new);
 
 	}
 }

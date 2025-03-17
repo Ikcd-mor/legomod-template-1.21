@@ -35,7 +35,7 @@ public class PainStatusEffects extends StatusEffect {
             LAST_TRIGGER_TIMES.put(uuid, currentTime);
 
             // 执行效果逻辑
-            if (!entity.getType().isIn(EntityTypeTags.SKELETONS)) {
+            if (!entity.getType().isIn(EntityTypeTags.UNDEAD)) {
                 if (entity.getHealth() > 1.0F) {
                     entity.damage(entity.getDamageSources().magic(), 1.0F);
                 }

@@ -3,15 +3,17 @@ package com.example.legomod.custom;
 import com.example.legomod.effect.ModStatusEffects;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -61,7 +63,7 @@ public class LegoBlock extends Block {
 
             // 检测实体碰撞盒是否与触发区域相交
             if (entity.getBoundingBox().intersects(triggerBox)) {
-                // 赋予中毒效果1秒
+                //
                 living.addStatusEffect(new StatusEffectInstance(ModStatusEffects.PAIN, 20, 0));
                 handleEntityTrigger(living, pos, (ServerWorld) world);
             }
@@ -78,10 +80,15 @@ public class LegoBlock extends Block {
                 break;
             case "block.legomod.red_lego_block":
                 // 处理红色方块的情况
-                world.createExplosion(entity, pos.getX(), pos.getY()+3, pos.getZ(), 4.0F, World.ExplosionSourceType.TNT);
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                //world.createExplosion(entity, pos.getX(), pos.getY(), pos.getZ(), 4.0F, World.ExplosionSourceType.TNT);
+                TntEntity tntEntity = new TntEntity(world, pos.getX(), pos.getY(), pos.getZ(), entity);
+                tntEntity.setFuse(0);
+                world.spawnEntity(tntEntity);
                 break;
             case "block.legomod.blue_lego_block":
                 // 处理蓝色方块的情况
+
                 entity.damage(world.getDamageSources().magic(), 18.0F);
                 break;
             case "block.legomod.yellow_lego_block":
@@ -104,16 +111,16 @@ public class LegoBlock extends Block {
 
         // 首次触发时记录
         if (!ENTITY_RECORDS.containsKey(key)) {
-            dealWay(entity, pos, world);
             ENTITY_RECORDS.put(key, new int[]{pos.getX(), pos.getY(), pos.getZ()});
+            dealWay(entity, pos, world);
             world.scheduleBlockTick(pos, this, 10);
         } else {
             // 检查存储的坐标与当前pos是否不同
             int[] storedPos = ENTITY_RECORDS.get(key);
             BlockPos originalPos = new BlockPos(storedPos[0], storedPos[1], storedPos[2]);
             if (!originalPos.equals(pos)) {
-                dealWay(entity, pos, world);
                 ENTITY_RECORDS.put(key, new int[]{pos.getX(), pos.getY(), pos.getZ()});
+                dealWay(entity, pos, world);
                 world.scheduleBlockTick(pos, this, 10);
             }
         }
@@ -142,5 +149,38 @@ public class LegoBlock extends Block {
         if (!ENTITY_RECORDS.isEmpty()) {
             world.scheduleBlockTick(pos, this, 10);
         }
+    }
+
+//    @Override
+//    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+//        // 遍历记录，删除与该位置相关的记录
+//        ENTITY_RECORDS.entrySet().removeIf(entry -> {
+//            String[] parts = entry.getKey().split(":");
+//            BlockPos recordPos = new BlockPos(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
+//            return recordPos.equals(pos);
+//        });
+//
+//        // 调用父类方法以保持原有逻辑
+//        super.onBreak(world, pos, state, player);
+//        return state;
+//    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        // 仅在方块被替换为空气时清理数据
+        if (newState.isAir()) {
+            ENTITY_RECORDS.entrySet().removeIf(entry -> {
+                String[] parts = entry.getKey().split(":");
+                BlockPos recordPos = new BlockPos(
+                        Integer.parseInt(parts[1]),
+                        Integer.parseInt(parts[2]),
+                        Integer.parseInt(parts[3])
+                );
+                return recordPos.equals(pos);
+            });
+        }
+
+        // 调用父类方法以保持原有逻辑（如掉落物品）
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 }

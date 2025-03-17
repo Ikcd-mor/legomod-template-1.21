@@ -20,6 +20,11 @@ public class ModENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.RED_LEGO_BLOCK,"Red Lego Block");
         translationBuilder.add(ModBlocks.BLUE_LEGO_BLOCK,"Blue Lego Block");
         translationBuilder.add(ModBlocks.YELLOW_LEGO_BLOCK,"Yellow Lego Block");
+
+        translationBuilder.add("effect.legomod.pain","Pain");
+        translationBuilder.add("effect.legomod.immobilize","Immobilize");
+
+        translationBuilder.add("itemGroup.lego_group", "Lego Group");
     }
 
 }

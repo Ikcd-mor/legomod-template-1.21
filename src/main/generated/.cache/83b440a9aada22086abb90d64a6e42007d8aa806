@@ -1,1 +1,9 @@
-// 1.21	2025-03-14T00:14:29.1318732	LegoMod/Recipes
+// 1.21	2025-03-16T16:06:42.0211687	LegoMod/Recipes
+5a79c4788a7a57bfafacce85143ea90f1723160f data\legomod\advancement\recipes\misc\red_lego_block.json
+d568dab61219ff9d56c120f60fbb90e1c16c6bb5 data\legomod\advancement\recipes\misc\yellow_lego_block.json
+56b805e5dcc6dee9b0aa0e0050bc0cf067ecfd62 data\legomod\recipe\blue_lego_block.json
+be4d07b25aa84ea7a8c5efb7d9eabf6a01f63ea6 data\legomod\recipe\lego_block.json
+60c54cb366249ad4e8c7a53eaff09c9d895dfc25 data\legomod\recipe\yellow_lego_block.json
+9c9fcbebc5592c69d6fbf3f19dc38c18415f3d64 data\legomod\advancement\recipes\misc\lego_block.json
+74d957aa7beba271aa21673605337983fd00595c data\legomod\recipe\red_lego_block.json
+8d87f6dadd16512c87f631f0b401df10ea4399b1 data\legomod\advancement\recipes\misc\blue_lego_block.json

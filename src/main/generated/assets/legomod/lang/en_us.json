@@ -2,5 +2,8 @@
   "block.legomod.blue_lego_block": "Blue Lego Block",
   "block.legomod.lego_block": "Lego Block",
   "block.legomod.red_lego_block": "Red Lego Block",
-  "block.legomod.yellow_lego_block": "Yellow Lego Block"
+  "block.legomod.yellow_lego_block": "Yellow Lego Block",
+  "effect.legomod.immobilize": "Immobilize",
+  "effect.legomod.pain": "Pain",
+  "itemGroup.lego_group": "Lego Group"
 }

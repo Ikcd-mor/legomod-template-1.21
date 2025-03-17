@@ -1,6 +1,8 @@
 package com.example.legomod.effect;
 
 import com.example.legomod.LegoMod;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
@@ -16,6 +18,7 @@ public class ModStatusEffects {
 
     public static final RegistryEntry<StatusEffect> PAIN = register("pain", new PainStatusEffects(StatusEffectCategory.HARMFUL, 0x808080));
     public static final RegistryEntry<StatusEffect> IMMOBILIZE = register("immobilize", new ImmobilizeStatusEffects(StatusEffectCategory.HARMFUL, 0x808080));
+//            .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,Identifier.of(LegoMod.MOD_ID,"effect.immobilize"),-1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     private static RegistryEntry<StatusEffect> register(String id, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(LegoMod.MOD_ID, id), statusEffect);
